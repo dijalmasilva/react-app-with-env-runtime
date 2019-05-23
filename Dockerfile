@@ -1,4 +1,4 @@
-FROM node:12.2.0-alpine
+FROM node:alpine
 
 WORKDIR /app
 
@@ -8,9 +8,13 @@ RUN yarn
 COPY . .
 RUN yarn build
 
-EXPOSE 3001
+EXPOSE 5000
 
-COPY ./env.sh .
+RUN cp -r build /home/build
+
+WORKDIR /home/build
+
+COPY env.sh .
 COPY .env .
 
 RUN apk add --no-cache bash
@@ -19,6 +23,4 @@ RUN chmod +x env.sh
 
 RUN yarn global add serve
 
-WORKDIR /app/build
-
-CMD["/bin/bash", "./env.sh && serve -s"]
+CMD ["/bin/bash", "-c", "./env.sh && serve -s"]
