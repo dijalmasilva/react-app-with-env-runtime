@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          <p> API_URL: { window._env_.API_URL }</p>
         </a>
       </header>
     </div>
