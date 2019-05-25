@@ -7,9 +7,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -17,6 +14,7 @@ function App() {
           rel="noopener noreferrer"
         >
           <p> API_URL: { window._env_.API_URL }</p>
+          <p> API_NAME: { window._env_.API_NAME }</p>
         </a>
       </header>
     </div>

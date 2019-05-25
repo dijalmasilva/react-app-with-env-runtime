@@ -2,6 +2,8 @@ FROM node:alpine
 
 WORKDIR /app
 
+ENV PATH /app/node_modules/.bin:$PATH
+
 COPY package.json .
 COPY yarn.lock .
 RUN yarn
@@ -14,13 +16,10 @@ RUN cp -r build /home/build
 
 WORKDIR /home/build
 
-COPY env.sh .
+COPY env.js .
 COPY .env .
 
 RUN apk add --no-cache bash
-
-RUN chmod +x env.sh
-
 RUN yarn global add serve
 
-CMD ["/bin/bash", "-c", "./env.sh && serve -s"]
+CMD ["/bin/bash", "-c", "node env.js && serve -s"]

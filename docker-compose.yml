@@ -8,4 +8,5 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - API_URL= http://dijalma.com.br
+      - API_URL=http://url-docker-compose.com.br
+      - API_NAME=Name from docker-compose
